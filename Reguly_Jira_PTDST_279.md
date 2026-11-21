@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.21 — aktywne, 21.11.2026
+Wersja 0.22 — aktywne, 21.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -156,6 +156,13 @@ Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
 ### Wzór odpowiedzi R-009
 W celu rozwiązania problemu proszę zapoznać się z artykułem:
 [Tworzenie kopii zapasowych MS SQL](https://darsoft.atlassian.net/servicedesk/customer/kb/view/15663105?source=issue-view)
+
+## Reguła R-010 — CEPIK: błędna kombinacja kryteriów zapisu osoby
+Warunek: zgłoszenie PTDST ma tytuł „informacjaODemontazuPojazdu.danePodmiotu.daneOsoby - Błędna kombinacja kryteriów zapisu osoby.;” po usunięciu zewnętrznych spacji. Zatwierdzony przykład: PTDST-60191.
+Dla tego tytułu stosuj poniższy wzór. Obowiązuje nadrzędna reguła R-001 oraz ogólne zasady obsługi kolejki, publikacji i weryfikacji statusu.
+
+### Wzór odpowiedzi R-010
+W celu wysłania zaświadczenia o demontażu pojazdów do CEPIK, należy wprowadzić poprawne dane właściciela pojazdu.
 
 ## Warunki przyszłego uruchomienia
 Zatwierdź reguły i upoważnienie do publicznych odpowiedzi. Filtr kolejki został podany i sprawdzony przez API. Zweryfikuj źródła wiedzy i przejścia statusów. Skonfiguruj harmonogram i trwały rejestr przetwarzania.
