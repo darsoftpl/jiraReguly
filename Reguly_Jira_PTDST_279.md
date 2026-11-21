@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.19 — szkic nieaktywny, 18.11.2026
+Wersja 0.19 — aktywne, 18.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
