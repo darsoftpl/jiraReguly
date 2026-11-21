@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.13 — szkic nieaktywny, 16.11.2026
+Wersja 0.19 — szkic nieaktywny, 18.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -22,7 +22,7 @@ Oznaczenie w raporcie wykonania: R-001 — zgłaszający bok@darsoft.pl, odpowie
 Reguła zaktualizowana poleceniem użytkownika 14.11.2026. Dopuszcza zapis propozycji jako notatki wewnętrznej podczas zleconej obsługi kolejki; samo zapisanie reguły nie uruchamia harmonogramu.
 
 ## Zasady
-- Tryb: propozycje odpowiedzi do zatwierdzenia. Wyjątek R-001: dla zgłaszającego bok@darsoft.pl dopuszczone są wyłącznie notatki wewnętrzne, bez zmiany statusu. Pozostałe publiczne odpowiedzi i zmiany statusów wymagają odrębnego upoważnienia. Harmonogram nie został utworzony.
+- Tryb: propozycje odpowiedzi do zatwierdzenia. Wyjątek R-001: dla zgłaszającego bok@darsoft.pl dopuszczone są wyłącznie notatki wewnętrzne, bez zmiany statusu. Publikacja odpowiedzi publicznych wymaga zlecenia obsługi. Po odpowiedzi publicznej status Oczekiwanie na klienta ustawia automatyzacja Jira; sprawdź wynik, bez samodzielnego przejścia workflow. Użytkownik ponownie włączył automatyzację i odwołał ręczne zmiany statusu 18.11.2026. Harmonogram nie został utworzony.
 - Korzystaj z API Jira i JQL, bez Rovo Search.
 - Przed każdym wykonaniem odczytaj aktualną zatwierdzoną wersję reguł. Jeśli nie możesz odczytać reguł lub kolejki, przerwij bez zapisu.
 - Zakres ogranicz do rzeczywistych członków kolejki 279; obsługuj stronicowanie.
@@ -66,14 +66,14 @@ Domyślnie stosujemy jako hasło do konta **sa**:
 ## Reguła R-003 — przywracanie kopii: SQL Server cannot process this media family
 Warunek: zgłoszenie dotyczy przywracania lub odczytu kopii zapasowej SQL Server i zawiera komunikat SQL Server cannot process this media family lub The media family on device ... is incorrectly formed. Pomocnicze sygnały: błąd SQL Server 3241, RESTORE FILELIST is terminating abnormally.
 Nazwa bazy danych, nazwa i ścieżka pliku kopii, firma oraz data kopii nie wpływają na dopasowanie. Rozpoznawaj treść błędu, nie konkretną nazwę z przykładu.
-Przykład zatwierdzony przez użytkownika: PTDST-59909.
+Przykłady zatwierdzone przez użytkownika: PTDST-59909 oraz PTDST-59980 (16.11.2026). PTDST-59980 dotyczy importowania kopii bazy z oddziału i zawiera błąd 3241 oraz oba powyższe komunikaty; fakt, że inne kopie importują się poprawnie, nie wyklucza dopasowania.
 Stosuj dokładnie poniższą odpowiedź. Nie dodawaj ogólnego wzoru R-002 dotyczącego połączenia SQL ani jego haseł tylko dlatego, że zgłoszenie zawiera SQL.
-Reguła nadrzędna R-001 pozostaje w mocy: dla zgłaszającego bok@darsoft.pl wyłącznie notatka wewnętrzna. Dla pozostałych odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik.
+Reguła nadrzędna R-001 pozostaje w mocy: dla zgłaszającego bok@darsoft.pl wyłącznie notatka wewnętrzna. Dla pozostałych odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
 Nie powtarzaj odpowiedzi już udzielonej bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż do dalszej analizy.
-Wzór i adres artykułu dostarczone przez użytkownika 14.11.2026.
+Adres artykułu dostarczony przez użytkownika 14.11.2026. Dokładny wzór odpowiedzi zaktualizowany poleceniem użytkownika 16.11.2026 przy wskazaniu PTDST-59980.
 
 ### Wzór odpowiedzi R-003
-Proszę zapoznać się z artykułem:
+W celu rozwiązania problemu proszę zapoznać się z artykułem:
 [Przywracanie kopii zapasowej. SQL Server cannot process this media family](https://darsoft.atlassian.net/servicedesk/customer/kb/view/824573973?source=issue-view)
 
 ## Reguła R-004 — CEPIK: wysyłanie zaświadczenia i nieprawidłowy dokument
@@ -81,7 +81,7 @@ Warunek: zgłoszenie jest podobne do PTDST-59779 i dotyczy wysyłania zaświadcz
 Sam komunikat Conflict / HTTP 409 lub „Wystąpił błąd walidacji twardej” bez powyższego kontekstu nie wystarcza. Firma, identyfikatory pojazdu i błędu, daty oraz wersja aplikacji nie wpływają na dopasowanie.
 Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 16.11.2026: PTDST-59779.
 Stosuj wyłącznie poniższy wzór, bez dodatkowych uwag z historycznych odpowiedzi w zgłoszeniu.
-Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik.
+Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
 Nie powtarzaj odpowiedzi już udzielonej bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż sprawę do dalszej analizy.
 Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
 
@@ -94,7 +94,7 @@ Warunek: zgłoszenie dotyczy integracji CEPIK i zawiera komunikat „Nieprawidł
 Sam komunikat Conflict / HTTP 409 lub „Wystąpił błąd walidacji twardej” bez rozpoznania błędu danych osoby nie wystarcza. Firma, identyfikatory pojazdu i błędu, daty oraz wersja aplikacji nie wpływają na dopasowanie.
 Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 16.11.2026: PTDST-59939.
 Stosuj wyłącznie poniższy wzór. Nie zastępuj go odpowiedzią R-004 tylko z powodu wspólnego kontekstu unieważniania dokumentów; rozstrzyga konkretny komunikat lub kod błędu.
-Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik.
+Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
 Nie powtarzaj odpowiedzi już udzielonej bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż sprawę do dalszej analizy.
 Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
 
@@ -108,7 +108,7 @@ Firma, adres e-mail, data, wersja aplikacji oraz operacja, podczas której nast�
 Nie stosuj tej reguły do samych błędów walidacji danych zwróconych przez CEPIK, np. R-004 lub R-005.
 Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 16.11.2026: PTDST-59936.
 Stosuj dokładnie poniższą odpowiedź, z oboma odnośnikami w podanej kolejności.
-Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik.
+Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
 Nie powtarzaj odpowiedzi już udzielonej bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż sprawę do dalszej analizy.
 Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
 
@@ -118,9 +118,47 @@ Proszę upewnić się, że połączenie z VPN CEPIK zostało poprawnie nawiązan
 1. [CEPIK 2.0 Aktualizacja certyfikatów infrastruktury](https://darsoft.atlassian.net/servicedesk/customer/kb/view/2784624651?source=issue-view)
 2. [CEPIK. Film (instalacja pobranych certyfikatów)](https://darsoft.atlassian.net/servicedesk/customer/kb/view/2426601474?source=issue-view)
 
+## Reguła R-007 — zasady kontroli aplikacji zablokowały plik
+Warunek: zgłoszenie zawiera komunikat „Zasady kontroli aplikacji zablokowały ten plik” przy ładowaniu pliku lub biblioteki aplikacji. Pomocnicze sygnały: System.IO.FileLoadException, Could not load file or assembly oraz kod 0x800711C7. Sam ogólny błąd ładowania biblioteki bez potwierdzenia blokady przez zasady kontroli aplikacji nie wystarcza.
+Nazwa i ścieżka pliku (np. KSeF.Client.Core.dll), nazwa aplikacji, firma i wersja programu nie wpływają na dopasowanie.
+Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 16.11.2026: PTDST-59979.
+Stosuj dokładnie poniższą odpowiedź. Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
+Nie powtarzaj odpowiedzi już udzielonej bez nowych istotnych informacji. Jeśli klient potwierdza wykonanie zaleceń z tego artykułu i problem trwa, przekaż sprawę do dalszej analizy. Samo ogólne stwierdzenie „Nie działa wasze rozwiązanie” nie potwierdza wykonania zaleceń z tego konkretnego artykułu; sprawdź kontekst i historię.
+Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
+
+### Wzór odpowiedzi R-007
+W celu rozwiązania problemu proszę zapoznać się z artykułem:
+[Komunikat: Zasady kontroli aplikacji zablokowały ten plik](https://darsoft.atlassian.net/servicedesk/customer/kb/view/2589032451?source=issue-view)
+
+## Reguła R-008 — Cisco AnyConnect: niezaufany certyfikat serwera
+Warunek: zgłoszenie dotyczy Cisco AnyConnect / VPN CEPIK i zawiera „Security Warning: Untrusted Server Certificate”, „Untrusted Server Blocked” lub równoważne ostrzeżenie o niezaufanym certyfikacie serwera. Obejmuje przypadki, w których po ręcznym potwierdzeniu połączenie działa; nie wymagaj całkowitego braku połączenia.
+Przykład i dokładny wzór zatwierdzone przez użytkownika 17.11.2026: PTDST-59981.
+Stosuj poniższą odpowiedź z oboma artykułami w podanej kolejności. Przy konkretnym ostrzeżeniu o niezaufanym certyfikacie ta reguła ma pierwszeństwo przed ogólną R-006. Nie dodawaj własnych zaleceń wyłączania weryfikacji certyfikatu.
+Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
+Nie powtarzaj odpowiedzi bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż do dalszej analizy.
+Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
+
+### Wzór odpowiedzi R-008
+W celu rozwiązania problemu proszę zapoznać się z artykułami:
+
+1. [Cisco AnyConnect. Untrusted Server Blocked](https://darsoft.atlassian.net/servicedesk/customer/kb/view/2768273411?source=issue-view)
+2. [CEPIK 2.0 Aktualizacja certyfikatów infrastruktury](https://darsoft.atlassian.net/servicedesk/customer/kb/view/2784624651?source=issue-view)
+
+## Reguła R-009 — tworzenie kopii MS SQL: odmowa dostępu do pliku
+Warunek: zgłoszenie jest podobne do PTDST-60046 i dotyczy tworzenia kopii zapasowej MS SQL / SQL Server, zakończonego odmową dostępu do pliku docelowego. Sygnały dopasowania: Cannot open backup device oraz Operating system error 5 (Odmowa dostępu / Access is denied), w kontekście BACKUP DATABASE. Pomocniczo: błąd SQL 3201 oraz operacja KopieZapasowe_Utworz.
+Nazwa i ścieżka pliku kopii, nazwa bazy, firma oraz wersja aplikacji nie wpływają na dopasowanie. Samo słowo SQL, błąd 3201 bez kontekstu lub ogólny problem z kopią nie wystarczają. Błędy przywracania kopii opisane w R-003 i problemy połączenia opisane w R-002 podlegają właściwym regułom.
+Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 18.11.2026: PTDST-60046.
+Stosuj dokładnie poniższą odpowiedź. Reguła nadrzędna R-001 pozostaje w mocy. Dla pozostałych zgłaszających odpowiedź publiczna podczas upoważnionej obsługi; status zmienia automatyzacja Jira, następnie zweryfikuj wynik zgodnie z zasadą ogólną poniżej.
+Nie powtarzaj odpowiedzi bez nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż sprawę do dalszej analizy.
+Zapis reguły nie uruchamia harmonogramu ani masowej publikacji odpowiedzi.
+
+### Wzór odpowiedzi R-009
+W celu rozwiązania problemu proszę zapoznać się z artykułem:
+[Tworzenie kopii zapasowych MS SQL](https://darsoft.atlassian.net/servicedesk/customer/kb/view/15663105?source=issue-view)
+
 ## Warunki przyszłego uruchomienia
 Zatwierdź reguły i upoważnienie do publicznych odpowiedzi. Filtr kolejki został podany i sprawdzony przez API. Zweryfikuj źródła wiedzy i przejścia statusów. Skonfiguruj harmonogram i trwały rejestr przetwarzania.
 Przed zapisem sprawdzaj ponownie kolejkę i nowe komentarze. Rejestruj klucz zgłoszenia, obsłużoną wiadomość klienta, wersję reguły i identyfikator opublikowanego komentarza. Zapobiegaj równoległej obsłudze.
-Przy niepewnym wyniku zapisu odczytaj komentarze przed ponowieniem. Publikacja komentarza publicznego automatycznie zmienia status na Oczekiwanie na klienta przez konfigurację Jira (potwierdzone przez użytkownika i odczyt statusów PTDST-59912 oraz PTDST-59901 14.11.2026). Nie wywołuj osobnego przejścia workflow po publikacji. Odczytaj status po wykonaniu automatyzacji Jira; jeśli nadal nie jest oczekiwany, zgłoś rozbieżność bez ponawiania komentarza i bez samodzielnej zmiany statusu. Notatka wewnętrzna nie jest odpowiedzią publiczną i nie upoważnia do zmiany statusu; nadrzędna R-001 pozostaje w mocy.
+Przy niepewnym wyniku zapisu odczytaj komentarze przed ponowieniem. Publikacja komentarza publicznego automatycznie zmienia status na Oczekiwanie na klienta przez konfigurację Jira (potwierdzone przez użytkownika i odczyt statusów PTDST-59912 oraz PTDST-59901 14.11.2026). Zgodnie z najnowszym poleceniem użytkownika z 18.11.2026 automatyzacja Jira została ponownie włączona. Nie wykonuj samodzielnego przejścia workflow po odpowiedzi. Odczytaj status po publikacji i działaniu automatyzacji; jeśli nadal nie jest oczekiwany, zgłoś rozbieżność w raporcie, bez ponawiania komentarza i bez samodzielnej zmiany statusu. Notatka wewnętrzna nie jest odpowiedzią publiczną i nie upoważnia do zmiany statusu; nadrzędna R-001 pozostaje w mocy.
 Nie zamykaj zgłoszeń bez osobnej reguły.
 Raport: link zgłoszenia, rozpoznany problem, źródło, reguła, proponowana odpowiedź i status lub powód pominięcia.
