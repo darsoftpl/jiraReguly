@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.19 — aktywne, 18.11.2026
+Wersja 0.20 — aktywne, 21.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -42,6 +42,7 @@ Proponowany status po skutecznej publikacji zatwierdzonej odpowiedzi: Oczekiwani
 Warunek: zgłoszenie dotyczy nawiązania lub dostępności połączenia z serwerem MS SQL / SQL Server albo bazą danych na tym serwerze. Obejmuje również komunikat: ExecuteNonQuery wymaga otwartego i dostępnego połączenia (Connection), obecny stan połączenia: zamknięte — także podczas przywracania bazy. Nie wymagaj potwierdzenia niedostępności serwera, aby zakwalifikować taki komunikat. Samo wystąpienie słowa SQL nie wystarcza; błędy wykonywania zapytań przy działającym połączeniu nie kwalifikują się automatycznie.
 Przykłady zatwierdzone przez użytkownika 14.11.2026: PTDST-59912, PTDST-59901 oraz PTDST-59903 kwalifikują się do R-002. Reguła obejmuje również nieskonfigurowane połączenie XPO, w tym komunikat Cannot commit changes because the database connection is not configured (the stub database provider is currently used). Dla PTDST-59903 odpowiedź zapisuj wyłącznie jako notatkę wewnętrzną zgodnie z R-001. Przynależność do kolejki, historia wcześniejszych odpowiedzi i nadrzędna R-001 nadal podlegają sprawdzeniu przed zapisem.
 Przykład zatwierdzony przez użytkownika 16.11.2026: PTDST-59920 kwalifikuje się do R-002. Obejmuje komunikat „Przekroczono czas oczekiwania na wykonanie operacji w bazie danych” (kod SQL -2) podczas uruchamiania programu, w kontekście Uruchomienie_BazaDanych / PolaczSQL. W takim kontekście nie wymagaj dodatkowego rozstrzygnięcia, czy limit czasu wystąpił przy otwieraniu połączenia, czy podczas operacji inicjalizującej bazę. Nie rozszerzaj tego wyjątku na wszystkie przekroczenia czasu wykonywania zapytań przy działającym połączeniu. Użytkownik upoważnił do obsługi PTDST-59920 według wzoru R-002.
+Przykład zatwierdzony przez użytkownika 21.11.2026: PTDST-60187 kwalifikuje się do R-002. Komunikat „Value cannot be null. (Parameter 'XpoDefault.Session')” traktuj jako brak połączenia z bazą danych, niezależnie od wykonywanej operacji. Wystarczy ten komunikat w tytule lub opisie zgłoszenia. Sam wyjątek ArgumentNullException bez wskazania parametru XpoDefault.Session nie wystarcza.
 Działanie: stosuj poniższy wzór odpowiedzi zatwierdzony przez użytkownika. Dla bok@darsoft.pl nadrzędna R-001 dopuszcza wyłącznie notatkę wewnętrzną, bez zmiany statusu.
 Nie powtarzaj tej odpowiedzi, jeśli została już udzielona i nie ma nowych istotnych informacji. Jeśli klient wykonał zalecenia i problem trwa, przekaż sprawę do dalszej analizy.
 Podane hasła to dostarczone przez użytkownika domyślne warianty we wzorze odpowiedzi, nie potwierdzenie aktualnego hasła klienta. Wyjątek od ogólnego zakazu ujawniania sekretów dotyczy wyłącznie tych dwóch jawnie zatwierdzonych wariantów we wzorze; nigdy nie ujawniaj innych znalezionych poświadczeń.
