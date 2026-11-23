@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.22 — aktywne, 21.11.2026
+Wersja 0.23 — aktywne, 23.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -77,8 +77,9 @@ Adres artykułu dostarczony przez użytkownika 14.11.2026. Dokładny wzór odpow
 W celu rozwiązania problemu proszę zapoznać się z artykułem:
 [Przywracanie kopii zapasowej. SQL Server cannot process this media family](https://darsoft.atlassian.net/servicedesk/customer/kb/view/824573973?source=issue-view)
 
-## Reguła R-004 — CEPIK: wysyłanie zaświadczenia i nieprawidłowy dokument
+## Reguła R-004 — CEPIK: wysyłanie zaświadczenia — dokument nieprawidłowy lub brak wymaganego dokumentu
 Warunek: zgłoszenie jest podobne do PTDST-59779 i dotyczy wysyłania zaświadczenia o demontażu do CEPIK lub unieważniania dokumentów w tym procesie. Sygnały dopasowania: „Przekazano nieprawidłowy dokument.”, kod DICT500_SDP_TW_Z01_7AD / TW.Z01.7ad albo opis, że dowód rejestracyjny widnieje jako unieważniony, lecz brak identyfikatora demontażu i nie można ponownie wysłać danych.
+R-004 obejmuje również brak wymaganego dokumentu przy wysyłaniu zaświadczenia o demontażu do CEPIK lub unieważnianiu dokumentów w tym procesie. Wystarczy komunikat „Nie przekazano wymaganego dokumentu.” lub kod DICT500_SDP_TW_Z01_7B / TW.Z01.7b. Przykład zatwierdzony 23.11.2026: PTDST-60214.
 Sam komunikat Conflict / HTTP 409 lub „Wystąpił błąd walidacji twardej” bez powyższego kontekstu nie wystarcza. Firma, identyfikatory pojazdu i błędu, daty oraz wersja aplikacji nie wpływają na dopasowanie.
 Przykład i dokładny wzór odpowiedzi zatwierdzone przez użytkownika 16.11.2026: PTDST-59779.
 Stosuj wyłącznie poniższy wzór, bez dodatkowych uwag z historycznych odpowiedzi w zgłoszeniu.
