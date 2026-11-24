@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.24 — aktywne, 24.11.2026
+Wersja 0.25 — aktywne, 24.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -171,6 +171,14 @@ Warunek: tytuł lub opis zgłoszenia zawiera komunikat „Deserialization from C
 ### Wzór odpowiedzi R-011
 W celu rozwiązania problemu proszę zapoznać się z artykułem:
 [Przywrócenie domyślnej zawartości szablonu wydruku](https://darsoft.atlassian.net/servicedesk/customer/kb/view/1780711426?source=issue-view)
+
+## Reguła R-012 — anulowanie dokumentu po wydaniu przyjętego towaru
+Warunek: z tytułu lub opisu wynika, że nie można anulować dokumentu przyjęcia, ponieważ towar przyjęty tym dokumentem został już wydany. Przykład zatwierdzony 24.11.2026: PTDST-60231, komunikat „Nie można anulować dokumentu, ponieważ towar nim przyjęto został już wydany!”.
+Stosuj poniższą odpowiedź zgodnie z zasadami ogólnymi i nadrzędną R-001.
+
+### Wzór odpowiedzi R-012
+W celu wykonania analizy stanu magazynowego proszę zapoznać się z artykułem:
+[Historia operacji magazynowych](https://darsoft.atlassian.net/servicedesk/customer/kb/view/380338221)
 
 ## Warunki przyszłego uruchomienia
 Zatwierdź reguły i upoważnienie do publicznych odpowiedzi. Filtr kolejki został podany i sprawdzony przez API. Zweryfikuj źródła wiedzy i przejścia statusów. Skonfiguruj harmonogram i trwały rejestr przetwarzania.
