@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.23 — aktywne, 23.11.2026
+Wersja 0.24 — aktywne, 24.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -164,6 +164,13 @@ Dla tego tytułu stosuj poniższy wzór. Obowiązuje nadrzędna reguła R-001 or
 
 ### Wzór odpowiedzi R-010
 W celu wysłania zaświadczenia o demontażu pojazdów do CEPIK, należy wprowadzić poprawne dane właściciela pojazdu.
+
+## Reguła R-011 — błąd odczytu szablonu wydruku w formacie CodeDOM
+Warunek: tytuł lub opis zgłoszenia zawiera komunikat „Deserialization from CodeDOM format is not supported in .NET Core applications.”, jak w PTDST-60227. Przykład i wzór odpowiedzi zatwierdzone 24.11.2026. Stosuj poniższy wzór z uwzględnieniem R-001 i ogólnych zasad obsługi kolejki.
+
+### Wzór odpowiedzi R-011
+W celu rozwiązania problemu proszę zapoznać się z artykułem:
+[Przywrócenie domyślnej zawartości szablonu wydruku](https://darsoft.atlassian.net/servicedesk/customer/kb/view/1780711426?source=issue-view)
 
 ## Warunki przyszłego uruchomienia
 Zatwierdź reguły i upoważnienie do publicznych odpowiedzi. Filtr kolejki został podany i sprawdzony przez API. Zweryfikuj źródła wiedzy i przejścia statusów. Skonfiguruj harmonogram i trwały rejestr przetwarzania.
