@@ -1,5 +1,5 @@
 # Reguły odpowiedzi Jira
-Wersja 0.25 — aktywne, 24.11.2026
+Wersja 0.26 — aktywne, 25.11.2026
 
 Projekt: PTDST
 Kolejka: Dzisiaj uaktualnione
@@ -179,6 +179,11 @@ Stosuj poniższą odpowiedź zgodnie z zasadami ogólnymi i nadrzędną R-001.
 ### Wzór odpowiedzi R-012
 W celu wykonania analizy stanu magazynowego proszę zapoznać się z artykułem:
 [Historia operacji magazynowych](https://darsoft.atlassian.net/servicedesk/customer/kb/view/380338221)
+
+## Reguła R-013 — automatyczne zamknięcie zgłoszenia z błędem HostNotFound
+Warunek: w nierozwiązanym zgłoszeniu PTDST z kolejki 279 bieżący błąd sieciowy to `HostNotFound`, `Host not found` lub `Nieznany host`, albo pole `NET_KOD` zawiera kod gniazda Windows `11001`. Porównuj komunikaty bez rozróżniania wielkości liter. Zgłoszenie PTDST-60276 jest przykładem dopasowania. Reguła obejmuje wszystkie hosty i integracje. Ogólny komunikat o problemie sieciowym, inny kod lub wzmianka o wcześniejszym błędzie bez potwierdzenia bieżącego problemu nie wystarczają.
+Działanie: podczas obsługi kolejki z zapisem przejdź bezpośrednio do statusu „Rozwiązane”, bez publikowania odpowiedzi i bez dodawania notatki. R-001 ma pierwszeństwo. Jeśli nie można ustalić zgłaszającego albo historia wskazuje inny bieżący problem wymagający obsługi, pozostaw zgłoszenie do weryfikacji. Przed zapisem potwierdź aktualny status, dopasowanie i dostępność przejścia. Po zapisie zweryfikuj status i odnotuj wynik w raporcie. Jeśli przejście jest niedostępne, zgłoś to w raporcie.
+Reguła jest zatwierdzona 25.11.2026 do automatycznego stosowania podczas obsługi kolejki z zapisem.
 
 ## Warunki przyszłego uruchomienia
 Zatwierdź reguły i upoważnienie do publicznych odpowiedzi. Filtr kolejki został podany i sprawdzony przez API. Zweryfikuj źródła wiedzy i przejścia statusów. Skonfiguruj harmonogram i trwały rejestr przetwarzania.
